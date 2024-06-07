@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="/static/images/003.png" type="">
+
+  <title> StuNet </title>
+
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+
+  <link href="/static/css/style.css" rel="stylesheet" />
+
+  <link href="/static/css/responsive.css" rel="stylesheet" />
+
+  <style>
+  .parallax_top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("/static/images/hero-bg.png");
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .responsive {
+      width: 100%;
+      min-height: 25px;
+      max-height: 35px;
+      height: 150%;
+    }
+    .img-hor-vert {
+      -moz-transform: scale(-1, -1);
+      -o-transform: scale(-1, -1);
+      -webkit-transform: scale(-1, -1);
+      transform: 
+      scale(-1, -1);
+    }
+    .limited-margin {
+            max-width: 300px; /* Adjust this value to limit the width as needed */
+            margin-right: auto; /* Centers the paragraph horizontally */
+        }
+
+
+        .gallery {
+  --g: 6px; /* the gap */
+  
+  display: grid;
+  width: 450px; /* the size */
+  aspect-ratio: 1;
+  grid: auto-flow 1fr/repeat(3,1fr);
+  gap: var(--g);
+  
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: opacity(90%);
+  cursor: pointer;
+  transition: .5s;
+  border-radius: 10%;
+
+}
+.gallery img:hover {
+  filter: opacity(100%) brightness(120%);
+}
+.inner-image {
+  position: absolute;
+  min-width: 466px;
+  height: 100%;
+  border-radius: 5%;
+  border:3px solid rgb(203, 203, 203);
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="parallax_top">
+
+    <header class="header_section">
+      <div class="container-fluid pt-1">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <img src="/static/images/001.png" alt="">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/calculator">GPA Calculator</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/classes" >Classes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <img src="/static/images/title.png" alt="" class="responsive" id="about-us">
+
+    <section class="slider_section mt-5">
+            <div class="container ">
+              <div class="row">
+                <div class="col-lg-5 col-md-4 col-ms-11 m-2">
+                  <div class="detail-box">
+                    <h1>
+                      Student<br>
+                      Photo Gallary
+                    </h1>
+                    <p class="limited-margin">
+                      Allows teacher orgonised photo galleries to be used as student photo submissions for assignments.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Continue
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5 col-md-7 col-ms-11 m-3">
+                  <img src="/static/images/border-img.png" class="inner-image">
+                  <div class="gallery m-2">
+                    <img src="/static/images/image1.jpg" alt="a river">
+                    <img src="/static/images/image1.jpg" alt="The mountain">
+                    <img src="/static/images/image1.jpg" alt="a river">
+                    <img src="/static/images/image1.jpg" alt="a women with a camera">
+                    <img src="/static/images/image1.jpg" alt="a river">
+                    <img src="/static/images/image1.jpg" alt="a women with a camera">
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+    </section>
+    <img src="/static/images/title.png" alt="" class="responsive img-hor-vert" id="merch">
+  </div>
+
+
+
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            What <span>else</span> to we <span>offer</span>?
+          </h2>
+          <p>
+            For those who sign up we also offer different types of functions to allow for educational improvements.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="/static/images/s1.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Community
+                </h5>
+                <p>
+                  When uploading images you can connect with your pears by voting for their pictures.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="box ">
+              <div class="img-box">
+                <img src="/static/images/s2.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  GPA calculator
+                </h5>
+                <p>
+                  By providing a customizable GPA calculator, we can asure students that they will be able to keep track of their current and future academic preformance.
+                </p>
+                <a class="" href="contributors.html">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="/static/images/s3.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Promotion
+                </h5>
+                <p>
+                  We provide you a chance to promote your artstyle by posting it on the main page of the website.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="parallax_top">
+    <img src="/static/images/title.png" alt="" class="responsive" id="about-us">
+    <img src="/static/images/title.png" alt="" class="responsive img-hor-vert" id="merch">
+  </div>
+  
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +86 176 0065 9192
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  250047@bjsmicschool.com
+                </span>
+              </a>
+                <a href="">
+                  <i class="fa fa-wechat" aria-hidden="true"></i>
+                  <span>
+                    AJCilliers
+                  </span>
+                </a>
+            </div>
+          </div>
+  
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Inquiry
+            </h4>
+            <p>
+              Feel free to message me on either WeChat or email. WeChat may be the better option as i only look at my emails in 1-2 business days.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="active" href="index.html">
+                Home
+              </a>
+              <a class="" href="contributors.html">
+                Contributors
+              </a>
+              <a class="" href="service.html">
+                Services
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script type="text/javascript" src="js/custom.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+
+</body>
+
+</html>
