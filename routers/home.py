@@ -12,11 +12,11 @@ async def get_index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @router.get("/classes", response_class=HTMLResponse)
-async def get_index(request: Request):
+async def get_classes(request: Request):
     return templates.TemplateResponse("class.html", {"request": request})
 
 @router.get("/calculator", response_class=HTMLResponse)
-async def get_index(request: Request):
+async def get_calculator(request: Request):
     return templates.TemplateResponse("calculator.html", {"request": request})
 
 
