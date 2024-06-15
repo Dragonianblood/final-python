@@ -25,4 +25,4 @@ async def get_calculator(request: Request):
 @router.get("/class/{class_id}", response_class=RedirectResponse)
 async def go_to_class(request: Request, class_id: str):
     print(class_id)
-    return templates.TemplateResponse("calculator.html", {"request": request})
+    return templates.TemplateResponse("class_gallery.html", {"request": request})

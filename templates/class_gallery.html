@@ -24,6 +24,7 @@
 
   <link href="/static/css/responsive.css" rel="stylesheet" />
 
+
   <style>
   .parallax_top {
     display: flex;
@@ -53,7 +54,6 @@
             max-width: 300px; /* Adjust this value to limit the width as needed */
             margin-right: auto; /* Centers the paragraph horizontally */
         }
-
 
         .gallery {
   --g: 6px; /* the gap */
@@ -85,6 +85,61 @@
   border-radius: 5%;
   border:3px solid rgb(203, 203, 203);
 }
+.text-top {
+  position: relative;
+  color: white;
+}
+.custom-color-1 {
+      background-color: #005e91;
+      color: white;
+    }
+    .custom-color-2 {
+      background-color: #005e91;
+      border:3px solid rgb(203, 203, 203);
+    }
+    .gallary-img {
+      border-radius: 5%;
+      border:5px solid #004c76;
+      background-color: #004c76;
+    }
+
+    .card img {
+  object-fit: cover;
+  filter: grayscale(60%);
+  transition: .2s linear;
+  transform: scale(var(--_t,0.95));
+}
+    .card:hover img{
+      filter: grayscale(0);
+      --_t: 1;
+    }
+  
+    .likes{
+      display: none;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    transition: .2s linear;
+    transform: scale(var(--_t,0.95));
+    }
+    .card:hover .likes {
+      display: block;
+      --_t: 1;
+      background-color: rgba(0,0,0,0.6);}
+    .likes .number {
+      filter: opacity(60%)
+    }
+    .button {
+      filter: opacity(60%)
+    }
+    .button:hover {
+      filter: opacity(100%);
+      cursor: pointer;
+    }
+
+
+    
 
   </style>
 
@@ -107,14 +162,14 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
-              <li class="nav-item active">
-                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/calculator">GPA Calculator</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/classes" >Classes</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="/classes" >Classes<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
@@ -125,112 +180,86 @@
       </div>
     </header>
     <img src="/static/images/title.png" alt="" class="responsive" id="about-us">
-
-    <section class="slider_section mt-5">
-            <div class="container ">
-              <div class="row">
-                <div class="col-lg-5 col-md-4 col-ms-11 m-2">
-                  <div class="detail-box">
-                    <h1>
-                      Student<br>
-                      Photo Gallary
-                    </h1>
-                    <p class="limited-margin">
-                      Allows teacher orgonised photo galleries to be used as student photo submissions for assignments.
-                    </p>
-                    <div class="btn-box">
-                      <a href="/classes" class="btn1">
-                        Continue
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-5 col-md-7 col-ms-11 m-3">
-                  <img src="/static/images/border-img.png" class="inner-image">
-                  <div class="gallery m-2">
-                    <img src="/static/images/image1.jpg" alt="a river">
-                    <img src="/static/images/image1.jpg" alt="The mountain">
-                    <img src="/static/images/image1.jpg" alt="a river">
-                    <img src="/static/images/image1.jpg" alt="a women with a camera">
-                    <img src="/static/images/image1.jpg" alt="a river">
-                    <img src="/static/images/image1.jpg" alt="a women with a camera">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-    </section>
-    <img src="/static/images/title.png" alt="" class="responsive img-hor-vert" id="merch">
-  </div>
-
-
-
-  <section class="service_section layout_padding">
-    <div class="service_container">
+    <div class="card-body custom-color-2 mx-auto my-4">
+      <div class="text-white text-center mt-1 mx-3">
+        <h2>Welcome To Physics</h2>
+      </div>
+    </div>
+    <div class="card-body custom-color-2 mx-5 mb-5">
       <div class="container ">
-        <div class="heading_container heading_center">
-          <h2>
-            What <span>else</span> to we <span>offer</span>?
-          </h2>
-          <p>
-            For those who sign up we also offer different types of functions to allow for educational improvements.
-          </p>
-        </div>
         <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <div class="box">
-              <div class="img-box">
-                <img src="/static/images/s1.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Community
-                </h5>
-                <p>
-                  When uploading images you can connect with your pears by voting for their pictures.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="box ">
-              <div class="img-box">
-                <img src="/static/images/s2.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  GPA calculator
-                </h5>
-                <p>
-                  By providing a customizable GPA calculator, we can asure students that they will be able to keep track of their current and future academic preformance.
-                </p>
-                <a class="" href="contributors.html">
-                  Read More
-                </a>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
+            <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
+              <img class="card-img-top" href="index.html" src="/static/images/image1.jpg" alt="Card image cap" style="max-height: 25rem;">
+              <div class="likes">
+                <div class="container">
+                  <div class="row">
+                    <div class="col button">Like</div>
+                    <div class="col number">1234</div>
+                    <div class="w-100"></div>
+                    <div class="col button">Dislike</div>
+                    <div class="col number">1234</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="box">
-              <div class="img-box">
-                <img src="/static/images/s3.png" alt="">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
+            <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
+              <img class="card-img-top" href="index.html" src="/static/images/image1.jpg" alt="Card image cap" style="max-height: 25rem;">
+              <div class="likes">
+                <div class="container">
+                  <div class="row">
+                    <div class="col button">Like</div>
+                    <div class="col number">1234</div>
+                    <div class="w-100"></div>
+                    <div class="col button">Dislike</div>
+                    <div class="col number">1234</div>
+                  </div>
+                </div>
               </div>
-              <div class="detail-box">
-                <h5>
-                  Promotion
-                </h5>
-                <p>
-                  We provide you a chance to promote your artstyle by posting it on the main page of the website.
-                </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
+            <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
+              <img class="card-img-top" href="index.html" src="/static/images/image1.jpg" alt="Card image cap" style="max-height: 25rem;">
+              <div class="likes">
+                <div class="container">
+                  <div class="row">
+                    <div class="col button">Like</div>
+                    <div class="col number">1234</div>
+                    <div class="w-100"></div>
+                    <div class="col button">Dislike</div>
+                    <div class="col number">1234</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
+            <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
+              <img class="card-img-top" href="index.html" src="/static/images/image1.jpg" alt="Card image cap" style="max-height: 25rem;">
+              <div class="likes">
+                <div class="container">
+                  <div class="row">
+                    <div class="col button">Like</div>
+                    <div class="col number">1234</div>
+                    <div class="w-100"></div>
+                    <div class="col button">Dislike</div>
+                    <div class="col number">1234</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
+
+
   <div class="parallax_top">
-    <img src="/static/images/title.png" alt="" class="responsive" id="about-us">
     <img src="/static/images/title.png" alt="" class="responsive img-hor-vert" id="merch">
   </div>
 
