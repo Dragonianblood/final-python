@@ -130,13 +130,118 @@
     .likes .number {
       filter: opacity(60%)
     }
-    .button {
+    .likes .button {
       filter: opacity(60%)
     }
     .button:hover {
       filter: opacity(100%);
       cursor: pointer;
     }
+
+    .add-photo {
+      background-color: #005e91;
+      border:3px solid rgb(203, 203, 203);
+    }
+    .add-photo a{
+      color: #FFFFFF;
+      font-size: 30px;
+      
+    }
+    .add-photo:hover{
+      background-color: #004c76;
+      cursor: pointer;
+      
+    }
+    .add-photo:hover a{
+      color: #cccccc;
+      cursor: pointer;
+      
+    }
+    /* Styles for the modal (popup) */
+/* Styles for modal popup */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #0078b8;
+  color: #ffffff;
+  margin: 10% auto; /* 10% from top and centered */
+  padding: 20px;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border:3px solid rgb(203, 203, 203);
+}
+
+/* Close button */
+.close {
+  color: #ffffff;
+  position: absolute;
+  right: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #55baf1;
+  cursor: pointer;
+}
+
+/* Drop area styling */
+#dropArea {
+  border: 2px dashed #ccc;
+  background-color: #008fdb;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#dropArea p {
+  margin: 0;
+}
+
+#fileInput {
+  display: none; /* Hide default file input */
+}
+
+.upload-label {
+  background-color: #00659b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border:3px solid #005583;
+}
+
+.upload-label:hover {
+  background-color: #004c76;
+}
+
+/* Upload button */
+#uploadBtn {
+  background-color: #00659b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border:3px solid #005583;
+}
+
+#uploadBtn:hover {
+  background-color: #004c76;
+}
+
+
 
 
     
@@ -180,9 +285,37 @@
       </div>
     </header>
     <img src="/static/images/title.png" alt="" class="responsive" id="about-us">
-    <div class="card-body custom-color-2 mx-auto my-4">
-      <div class="text-white text-center mt-1 mx-3">
-        <h2>Welcome To Physics</h2>
+    <div class="modal" id="fileUploadModal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Upload File</h2>
+        <form id="uploadForm" enctype="multipart/form-data" action="your-upload-url" method="post">
+          <div id="dropArea">
+            <p>Drag and drop a file here or</p>
+            <label for="fileInput" class="upload-label">choose a file</label>
+            <input type="file" id="fileInput" name="file">
+          </div>
+          <button type="submit" id="uploadBtn">Upload</button>
+        </form>
+      </div>
+    </div>
+    <div class="container ">
+      <div class="row">
+        <div class="col-lg-8 col-md-7 col-sm-12" >
+          <div class="card-body custom-color-2 mx-auto my-4">
+            <div class="text-white text-center mt-1 mx-3">
+              <h2>Welcome To Physics</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-6 col-8 mx-auto" >
+          <div class="card-body mx-auto my-4 add-photo">
+            <div class="text-white mt-1 mx-3 text-center">
+              <a class="button stretched-link" id="openModalBtn">Add Photo</a>
+            </div>
+          </div>
+          <script type="text/javascript" src="/static/js/custom.js"></script>
+        </div>
       </div>
     </div>
     <div class="card-body custom-color-2 mx-5 mb-5">
