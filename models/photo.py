@@ -1,8 +1,5 @@
-from datetime import datetime, timezone
-from typing import Optional
 from fastapi import Request
-from pydantic import BaseModel
-from beanie import Document, Indexed
+from beanie import Document
 
 
 class Gallery(Document):

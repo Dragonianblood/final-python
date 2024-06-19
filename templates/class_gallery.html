@@ -128,10 +128,18 @@
       --_t: 1;
       background-color: rgba(0,0,0,0.6);}
     .likes .number {
-      filter: opacity(60%)
+      filter: opacity(60%);
+      font-size: 130%;
     }
     .likes .button {
-      filter: opacity(60%)
+      filter: opacity(60%);
+      color: #ffffff;
+    }
+    .likes .like {
+      background-color: #2bc437;
+    }
+    .likes .dislike {
+      background-color: #dd2929;
     }
     .button:hover {
       filter: opacity(100%);
@@ -304,7 +312,7 @@
         <div class="col-lg-8 col-md-7 col-sm-12" >
           <div class="card-body custom-color-2 mx-auto my-4">
             <div class="text-white text-center mt-1 mx-3">
-              <h2>Welcome To Physics</h2>
+              <h2>Welcome To {{ class_id.capitalize() }}</h2>
             </div>
           </div>
         </div>
@@ -321,70 +329,28 @@
     <div class="card-body custom-color-2 mx-5 mb-5">
       <div class="container ">
         <div class="row">
+          {% for photo in photos %}
+          {% if photo.program == class_id %}
           <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
             <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
-              <img class="card-img-top" href="index.html" src="/static/images/image1.jpg" alt="Card image cap" style="max-height: 25rem;">
+              <img class="card-img-top" href="index.html" src="/static/images/published/{{ photo.program }}/{{ photo.author }}/{{ photo.path }}.jpg" alt="Card image cap" style="max-height: 25rem;">
               <div class="likes">
                 <div class="container">
-                  <div class="row">
-                    <div class="col button">Like</div>
-                    <div class="col number">1234</div>
-                    <div class="w-100"></div>
-                    <div class="col button">Dislike</div>
-                    <div class="col number">1234</div>
-                  </div>
+                  <form action="/photo/{{ class_id }}/{{ photo.id }}" method="post">
+                    <div class="row pt-1">
+                      <button class="col form-control button like" id="likeButton" name="action" value="like" type="submit">Like</button>
+                      <div class="col number">{{ photo.likes }}</div>
+                      <div class="w-100"></div>
+                      <button class="col form-control button dislike" id="dislikeButton" name="action" value="dislike" type="submit">Dislike</button>
+                      <div class="col number">{{ photo.dislikes }}</div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
-            <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
-              <img class="card-img-top" href="index.html" src="/static/images/image1.jpg" alt="Card image cap" style="max-height: 25rem;">
-              <div class="likes">
-                <div class="container">
-                  <div class="row">
-                    <div class="col button">Like</div>
-                    <div class="col number">1234</div>
-                    <div class="w-100"></div>
-                    <div class="col button">Dislike</div>
-                    <div class="col number">1234</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
-            <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
-              <img class="card-img-top" href="index.html" src="/static/images/image1.jpg" alt="Card image cap" style="max-height: 25rem;">
-              <div class="likes">
-                <div class="container">
-                  <div class="row">
-                    <div class="col button">Like</div>
-                    <div class="col number">1234</div>
-                    <div class="w-100"></div>
-                    <div class="col button">Dislike</div>
-                    <div class="col number">1234</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
-            <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
-              <img class="card-img-top" href="index.html" src="/static/images/image1.jpg" alt="Card image cap" style="max-height: 25rem;">
-              <div class="likes">
-                <div class="container">
-                  <div class="row">
-                    <div class="col button">Like</div>
-                    <div class="col number">1234</div>
-                    <div class="w-100"></div>
-                    <div class="col button">Dislike</div>
-                    <div class="col number">1234</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
