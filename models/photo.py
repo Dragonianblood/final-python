@@ -9,6 +9,8 @@ class Gallery(Document):
     author: str
     path: int
     program: str
+    likes_who: list
+    dislikes_who: list
 
     class Settings:
         name = "gallery"
