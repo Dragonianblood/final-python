@@ -85,6 +85,10 @@
   border-radius: 5%;
   border:3px solid rgb(203, 203, 203);
 }
+.custom-color-2 {
+      background-color: #005e91;
+      border:3px solid rgb(203, 203, 203);
+    }
 
 
   </style>
@@ -112,13 +116,10 @@
                 <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/calculator">GPA Calculator</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="/classes" >Classes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/login_page"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                <a class="nav-link" href="{% if user_authenticated %}/reset{% else %}/login_page{% endif %}"> <i class="fa fa-user" aria-hidden="true"></i> {% if user_authenticated %}Log out{% else %}Login{% endif %}</a>
               </li>
             </ul>
           </div>
@@ -140,21 +141,27 @@
                       Allows teacher orgonised photo galleries to be used as student photo submissions for assignments.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="/classes" class="btn1">
                         Continue
                       </a>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-5 col-md-7 col-ms-11 m-3">
-                  <img src="/static/images/border-img.png" class="inner-image">
-                  <div class="gallery m-2">
-                    <img src="/static/images/image1.jpg" alt="a river">
-                    <img src="/static/images/image1.jpg" alt="The mountain">
-                    <img src="/static/images/image1.jpg" alt="a river">
-                    <img src="/static/images/image1.jpg" alt="a women with a camera">
-                    <img src="/static/images/image1.jpg" alt="a river">
-                    <img src="/static/images/image1.jpg" alt="a women with a camera">
+                <div class="col-lg-6 col-md-8 col-ms-11 m-3">
+                  <div class="card-body custom-color-2 mx-2 mb-5">
+                    <div class="container ">
+                      <div class="row">
+                        {% for photo in photos %}
+                        <div class="col-lg-4 col-md-5 col-sm-6" >
+                          <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
+                            <a href="/{{ photo.program }}/{{ photo.id }}">
+                            <img class="card-img-top" src="/static/images/published/{{ photo.program }}/{{ photo.author }}/{{ photo.path }}.jpg" alt="Card image cap" style="max-height: 25rem;">
+                            </a>
+                          </div>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

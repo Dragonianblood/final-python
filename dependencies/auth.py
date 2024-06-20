@@ -11,7 +11,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30  # Example: token expires in 30 minutes
 
 def verify_jwt_cookie(access_token: str = Cookie(None)):
     if access_token is None:
-        raise HTTPException(status_code=403, detail="Access token not provided")
+        return None
     try:
         payload = jwt.decode(access_token, SECRET_KEY, algorithms=["HS256"])
         return payload

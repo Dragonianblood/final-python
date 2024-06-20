@@ -11,6 +11,8 @@ class Gallery(Document):
     program: str
     likes_who: list
     dislikes_who: list
+    description: str
+    title: str
 
     class Settings:
         name = "gallery"

@@ -24,12 +24,13 @@
 
   <link href="/static/css/responsive.css" rel="stylesheet" />
 
+
   <style>
   .parallax_top {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url("/static/images/hero-bg-2.png");
+    background-image: url("/static/images/hero-bg.png");
 
     background-attachment: fixed;
     background-position: center;
@@ -53,7 +54,6 @@
             max-width: 300px; /* Adjust this value to limit the width as needed */
             margin-right: auto; /* Centers the paragraph horizontally */
         }
-
 
         .gallery {
   --g: 6px; /* the gap */
@@ -94,7 +94,8 @@
       color: white;
     }
     .custom-color-2 {
-      background-color: #0076b6;
+      background-color:#0078b8;
+      border:3px solid rgb(203, 203, 203);
     }
     .custom-color-3 {
       background-color: #005e91;
@@ -103,9 +104,183 @@
     .gallary-img {
       border-radius: 5%;
       border:5px solid #004c76;
+      background-color: #004c76;
     }
-    
 
+    .card img {
+  object-fit: cover;
+  filter: grayscale(60%);
+  transition: .2s linear;
+  transform: scale(var(--_t,0.95));
+}
+    .card:hover img{
+      filter: grayscale(0);
+      --_t: 1;
+    }
+  
+    .likes{
+      display: none;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    transition: .2s linear;
+    transform: scale(var(--_t,0.95));
+    }
+    .card:hover .likes {
+      display: block;
+      --_t: 1;
+      background-color: rgba(0,0,0,0.6);}
+    .likes .number {
+      filter: opacity(60%);
+      font-size: 130%;
+    }
+    .likes .button {
+      filter: opacity(60%);
+      color: #ffffff;
+    }
+    .like {
+      background-color: #2bc437;
+      color: #fff;
+    }
+    .dislike {
+      background-color: #dd2929;
+      color: #fff;
+    }
+    .button:hover {
+      filter: opacity(100%);
+      cursor: pointer;
+    }
+
+    .add-photo {
+      background-color: #005e91;
+      border:3px solid rgb(203, 203, 203);
+    }
+    .add-photo a{
+      color: #FFFFFF;
+      font-size: 30px;
+      
+    }
+    .add-photo:hover{
+      background-color: #004c76;
+      cursor: pointer;
+      
+    }
+    .add-photo:hover a{
+      color: #cccccc;
+      cursor: pointer;
+      
+    }
+    /* Styles for the modal (popup) */
+/* Styles for modal popup */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #0078b8;
+  color: #ffffff;
+  margin: 10% auto; /* 10% from top and centered */
+  padding: 20px;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border:3px solid rgb(203, 203, 203);
+}
+
+/* Close button */
+.close {
+  color: #ffffff;
+  position: absolute;
+  right: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #55baf1;
+  cursor: pointer;
+}
+
+/* Drop area styling */
+#dropArea {
+  border: 2px dashed #ccc;
+  background-color: #008fdb;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#dropArea p {
+  margin: 0;
+}
+
+#fileInput {
+  display: none; /* Hide default file input */
+}
+
+.upload-label {
+  background-color: #00659b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border:3px solid #005583;
+}
+
+.upload-label:hover {
+  background-color: #004c76;
+}
+
+/* Upload button */
+#uploadBtn {
+  background-color: #00659b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border:3px solid #005583;
+}
+
+#uploadBtn:hover {
+  background-color: #004c76;
+}
+input[type=file]::file-selector-button{
+  visibility: hidden;
+  display:none;
+  color: transparent;
+}
+input[type=file] {
+  color: #aaa;
+}
+
+.back {	
+	position: relative;
+	text-align:end;
+	color: #fff;
+}
+a[href] {
+    color:#fff
+}
+a[href]:hover {
+    color:#bbb
+}
+p {
+    font-size: 125%;
+    color:#bbb
+}
+.author-text {
+    font-size: 180%;
+}
   </style>
 
 </head>
@@ -130,8 +305,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/classes">Classes<span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                <a class="nav-link" href="/classes" >Classes</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% if user_authenticated %}/reset{% else %}/login_page{% endif %}"> <i class="fa fa-user" aria-hidden="true"></i> {% if user_authenticated %}Log out{% else %}Login{% endif %}</a>
@@ -142,26 +317,56 @@
       </div>
     </header>
     <img src="/static/images/title.png" alt="" class="responsive" id="about-us">
-    <div class="container ">
-      <div class="row">
-        <div class="col-lg-3 col-md-4" >
-          <div class="card text-white bg-info mb-2 gallary-img" style="max-width: 14rem;">
-            <a class="btn card-header custom-color-1 stretched-link" href="/class/physics">Physics</a>
-            <div class="card-body custom-color-2">
-              <img class="card-img-top custom-color-3" href="index.html" src="/static/images/image1.jpg" alt="Card image cap" style="max-height: 10rem;">
+
+    <div class="card-body custom-color-2 mx-max mx-5 my-5">
+        <h4 class="back"><a href="/class/{{class_id}}">Back To Class</a></h4>
+        <div class="container ">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-center card-body custom-color-3 my-4 mx-5">
+                        <h2 class="text-center text-white custom-color-3">{{ photo.title.title() }}</h2>
+                        <img class="card-img-top mx-auto" src="/static/images/published/{{ photo.program }}/{{ photo.author }}/{{ photo.path }}.jpg" alt="Card image cap" style="max-height: 40rem;max-width: 20rem;">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center card-body custom-color-3 my-4 mx-5">
+                        <div class="container">
+                          <form action="/photo/{{ class_id }}/{{ photo.id }}" method="post">
+                            <div class="row pt-1">
+                              <button class="col form-control button like" id="likeButton" name="action" value="like" type="submit">Like</button>
+                              <div class="col number text-white">{{ photo.likes }}</div>
+                              <div class="w-100 my-1"></div>
+                              <button class="col form-control button dislike" id="dislikeButton" name="action" value="dislike" type="submit">Dislike</button>
+                              <div class="col number text-white">{{ photo.dislikes }}</div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    <div class="text-center card-body custom-color-3 my-4 mx-5">
+                        <h2 class="text-center text-white custom-color-3">Description</h2>
+                        <p>{{photo.description}}</p>
+                    </div>
+                    <div class="text-center card-body custom-color-3 my-4 mx-5">
+                        <h2 class="text-center text-white custom-color-3">Author</h2>
+                        <p class="author-text">{{author.username}}</p>
+                    </div>
+                    <div class="text-center card-body custom-color-3 my-4 mx-5">
+                        <a class="col custom-color-3 button btn dislike" style="font-size:120%;" href="/{{class_id}}/delete/{{photo.id}}">Delete Post</a>
+                    </div>
+                
+                </div>
             </div>
-          </div>
-      </div>
+        </div>
     </div>
 
 
+    
+
+
+  <div class="parallax_top">
+    <img src="/static/images/title.png" alt="" class="responsive img-hor-vert" id="merch">
   </div>
-  <img src="/static/images/title.png" alt="" class="responsive img-hor-vert" id="merch">
 
-
-
-  </div>
-  
 
   <section class="info_section layout_padding2">
     <div class="container">
@@ -192,7 +397,7 @@
                 </a>
             </div>
           </div>
-  
+
         </div>
         <div class="col-md-6 col-lg-3 info_col">
           <div class="info_detail">

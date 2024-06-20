@@ -75,6 +75,7 @@
   border-radius: 10%;
 
 }
+
 .gallery img:hover {
   filter: opacity(100%) brightness(120%);
 }
@@ -248,11 +249,20 @@
 #uploadBtn:hover {
   background-color: #004c76;
 }
+input[type=file]::file-selector-button{
+  visibility: hidden;
+  display:none;
+  color: transparent;
+}
+input[type=file] {
+  color: #aaa;
+}
 
+input[type=text]{
 
+  background-color: transparent;
+}
 
-
-    
 
   </style>
 
@@ -279,13 +289,10 @@
                 <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/calculator">GPA Calculator</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/classes" >Classes<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/classes" >Classes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                <a class="nav-link" href="{% if user_authenticated %}/reset{% else %}/login_page{% endif %}"> <i class="fa fa-user" aria-hidden="true"></i> {% if user_authenticated %}Log out{% else %}Login{% endif %}</a>
               </li>
             </ul>
           </div>
@@ -295,13 +302,25 @@
     <img src="/static/images/title.png" alt="" class="responsive" id="about-us">
     <div class="modal" id="fileUploadModal">
       <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
+        <span class="close" id="closeModal">X</span>
         <h2>Upload File</h2>
-        <form id="uploadForm" enctype="multipart/form-data" action="your-upload-url" method="post">
+        <form id="uploadForm" enctype="multipart/form-data" action="/{{ class_id }}/picture/upload" method="post">
           <div id="dropArea">
-            <p>Drag and drop a file here or</p>
-            <label for="fileInput" class="upload-label">choose a file</label>
-            <input type="file" id="fileInput" name="file">
+            <p class="pb-4">Drag and drop a file here or</p>
+            <label for="file_input" class="upload-label"><input class="file_input_section" type="file" id="file_input" name="file_input"accept="image/jpeg" >Choose a file</label>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <p>Picture Title:</p>
+                <label for="file_name"><input class="file_input_section upload-label" type="text" id="file_name" name="file_name" ></label><br>    
+              </div>
+              <div class="col">
+                <p>Description:</p>
+                <label for="file_des"><textarea class="file_input_section upload-label" id="file_des" name="file_des" ></textarea></label><br>    
+              </div>
+
+            </div>
           </div>
           <button type="submit" id="uploadBtn">Upload</button>
         </form>
@@ -319,7 +338,7 @@
         <div class="col-lg-4 col-md-5 col-sm-6 col-8 mx-auto" >
           <div class="card-body mx-auto my-4 add-photo">
             <div class="text-white mt-1 mx-3 text-center">
-              <a class="button stretched-link" id="openModalBtn">Add Photo</a>
+              <a class="button" id="openModalBtn">Add Photo</a>
             </div>
           </div>
           <script type="text/javascript" src="/static/js/custom.js"></script>
@@ -333,20 +352,9 @@
           {% if photo.program == class_id %}
           <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
             <div class="card text-white mb-2 gallary-img mx-auto" style="max-width:fit-content;">
-              <img class="card-img-top" href="index.html" src="/static/images/published/{{ photo.program }}/{{ photo.author }}/{{ photo.path }}.jpg" alt="Card image cap" style="max-height: 25rem;">
-              <div class="likes">
-                <div class="container">
-                  <form action="/photo/{{ class_id }}/{{ photo.id }}" method="post">
-                    <div class="row pt-1">
-                      <button class="col form-control button like" id="likeButton" name="action" value="like" type="submit">Like</button>
-                      <div class="col number">{{ photo.likes }}</div>
-                      <div class="w-100"></div>
-                      <button class="col form-control button dislike" id="dislikeButton" name="action" value="dislike" type="submit">Dislike</button>
-                      <div class="col number">{{ photo.dislikes }}</div>
-                    </div>
-                  </form>
-                </div>
-              </div>
+              <a href="/{{ class_id }}/{{ photo.id }}">
+              <img class="card-img-top" src="/static/images/published/{{ photo.program }}/{{ photo.author }}/{{ photo.path }}.jpg" alt="Card image cap" style="max-height: 25rem;">
+              </a>
             </div>
           </div>
           {% endif %}
